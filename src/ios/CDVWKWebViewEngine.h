@@ -24,6 +24,7 @@
 
 @property (nonatomic, strong, readonly) id <WKUIDelegate> uiDelegate;
 
+- (WKUserContentController*) createController;
 - (void)allowsBackForwardNavigationGestures:(CDVInvokedUrlCommand*)command;
 
 @end

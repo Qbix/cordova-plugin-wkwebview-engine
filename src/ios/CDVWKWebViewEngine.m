@@ -80,6 +80,10 @@
     return configuration;
 }
 
+- (WKUserContentController*) createController {
+    return [[WKUserContentController alloc] init];
+}
+
 - (void)pluginInitialize
 {
     // viewController would be available now. we attempt to set all possible delegates to it, by default
@@ -89,7 +93,7 @@
 
     CDVWKWeakScriptMessageHandler *weakScriptMessageHandler = [[CDVWKWeakScriptMessageHandler alloc] initWithScriptMessageHandler:self];
 
-    WKUserContentController* userContentController = [[WKUserContentController alloc] init];
+    WKUserContentController* userContentController = [self createController];
     [userContentController addScriptMessageHandler:weakScriptMessageHandler name:CDV_BRIDGE_NAME];
 
     WKWebViewConfiguration* configuration = [self createConfigurationFromSettings:settings];
